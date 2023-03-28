@@ -80,7 +80,7 @@ public class PlayerController : MonoBehaviour
 
     public void GetInput()
     {
-        direction = new Vector3(InputManager.Instance.horizontalInput, transform.position.y, InputManager.Instance.verticalInput);
+        direction = new Vector3(InputManager.Instance.horizontalInput, transform.position.y, InputManager.Instance.verticalInput).normalized;
     }
     public void MovePlayer()
     {
