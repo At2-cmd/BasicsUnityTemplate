@@ -16,7 +16,13 @@ public class InputManager : MonoBehaviour
 
     private void Update()
     {
-        horizontalInput = floatingJS.Horizontal;
-        verticalInput = floatingJS.Vertical;
+        // --------------- JoyStick Movement -------------- //
+        //horizontalInput = floatingJS.Horizontal;
+        //verticalInput = floatingJS.Vertical;
+
+        // --------------- WASD Movement -------------- //
+        horizontalInput = Input.GetAxis("Horizontal");
+        verticalInput = Input.GetAxis("Vertical");
+
     }
 }

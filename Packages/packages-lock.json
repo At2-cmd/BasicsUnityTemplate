@@ -1,5 +1,14 @@
 {
   "dependencies": {
+    "com.rotatelab.fsm": {
+      "version": "https://github.com/RotatelabDev/FSM-Package.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.unity.services.core": "1.0.1"
+      },
+      "hash": "201745282a68ae47cd604abe4f9893e9309617f7"
+    },
     "com.unity.cinemachine": {
       "version": "2.8.9",
       "depth": 0,
