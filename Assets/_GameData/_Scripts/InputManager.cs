@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class InputManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public static InputManager Instance;
+    [SerializeField] private FloatingJoystick floatingJS;
+    public float horizontalInput;
+    public float verticalInput;
+
+    private void Awake()
     {
-        
+        Instance = this;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        horizontalInput = floatingJS.Horizontal;
+        verticalInput = floatingJS.Vertical;
     }
 }

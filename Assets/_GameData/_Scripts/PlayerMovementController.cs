@@ -4,7 +4,15 @@ using UnityEngine;
 
 public class PlayerMovementController : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] private float _speed;
+    private Rigidbody rb;
+    private Vector3 direction;
+
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
+
     void Start()
     {
         
@@ -13,6 +21,20 @@ public class PlayerMovementController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        GetInput();
+    }
+
+    private void FixedUpdate()
+    {
+        MovePlayer();
+    }
+
+    private void GetInput()
+    {
+        direction = new Vector3(InputManager.Instance.horizontalInput, transform.position.y, InputManager.Instance.verticalInput);
+    }
+    private void MovePlayer()
+    {
+        rb.MovePosition(transform.position + (direction * _speed * Time.deltaTime));
     }
 }
