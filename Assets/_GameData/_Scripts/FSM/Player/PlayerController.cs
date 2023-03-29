@@ -3,15 +3,20 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private float _moveSpeed;
-    [SerializeField] private float _rotateSpeed;
+    [SerializeField] private float _walkSpeed;
+    [SerializeField] private float _runSpeed;
+    [SerializeField] private float _walkRotateSpeed;
+    [SerializeField] private float _runRotateSpeed;
     [SerializeField] private string _stateName;
     private PlayerAnimController _animController;
     private Rigidbody rb;
     private Vector3 direction;
 
     public PlayerAnimController AnimController => _animController;
-     
+    public float WalkSpeed => _walkSpeed;
+    public float RunSpeed => _runSpeed;
+    public float WalkRotateSpeed => _walkRotateSpeed;
+    public float RunRotateSpeed => _runRotateSpeed;
 
 
     private readonly StateMachine<PlayerController, PlayerBaseState, PlayerStateType> _stateMachine = new StateMachine<PlayerController, PlayerBaseState, PlayerStateType>();
@@ -82,15 +87,23 @@ public class PlayerController : MonoBehaviour
     {
         direction = new Vector3(InputManager.Instance.horizontalInput, transform.position.y, InputManager.Instance.verticalInput).normalized;
     }
-    public void MovePlayer()
+    public void MovePlayer(float speed)
     {
-        rb.MovePosition(transform.position + (direction * _moveSpeed * Time.deltaTime));
+        rb.MovePosition(transform.position + (direction * speed * Time.deltaTime));
     }
 
-    public void RotatePlayerToDirection()
+    public void RotatePlayerToDirection(float rotationSpeed)
     {
         if (direction.magnitude < 0.1f) return;
         Quaternion targetRotation = Quaternion.LookRotation(direction);
-        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, _rotateSpeed * Time.deltaTime);
+        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+    }
+
+    public bool CheckMovementState()
+    {
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
+        bool isMoving = (horizontal != 0f) || (vertical != 0f);
+        return isMoving;
     }
 }

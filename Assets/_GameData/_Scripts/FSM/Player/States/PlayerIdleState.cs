@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class PlayerIdleState : PlayerBaseState
 {
+	private bool isMoving;
 	public PlayerIdleState(PlayerController owner, PlayerStateType type) : base(owner, type)
 	{
 		
@@ -25,13 +26,16 @@ public class PlayerIdleState : PlayerBaseState
 
     public override void Update()
     {
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
-        bool isMoving = (horizontal != 0f) || (vertical != 0f);
+		isMoving = owner.CheckMovementState();
 
         if (isMoving)
 		{
 			owner.StateMachine.ChangeState(PlayerStateType.Walk);
 		}
+
+        if (Input.GetKeyDown(KeyCode.LeftControl))
+        {
+            owner.StateMachine.ChangeState(PlayerStateType.Crounch);
+        }
     }
 }

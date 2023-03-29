@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class PlayerWalkState : PlayerBaseState
 {
+    private bool isMoving;
 	public PlayerWalkState(PlayerController owner, PlayerStateType type) : base(owner, type)
 	{
 		
@@ -19,21 +20,28 @@ public class PlayerWalkState : PlayerBaseState
 
     public override void FixedUpdate()
     {
-        owner.MovePlayer();
+        owner.MovePlayer(owner.WalkSpeed);
     }
 
     public override void Update()
     {
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
-        bool isMoving = (horizontal != 0f) || (vertical != 0f);
-
         owner.GetInput();
-        owner.RotatePlayerToDirection();
+        owner.RotatePlayerToDirection(owner.WalkRotateSpeed);
+        isMoving = owner.CheckMovementState();
 
         if (!isMoving)
         {
             owner.StateMachine.ChangeState(PlayerStateType.Idle);
+        }
+
+        if(Input.GetKeyDown(KeyCode.LeftShift)) 
+        {
+            owner.StateMachine.ChangeState(PlayerStateType.Run);
+        }
+
+        if (Input.GetKeyDown(KeyCode.LeftControl))
+        {
+            owner.StateMachine.ChangeState(PlayerStateType.Crounch);
         }
     }
 }
