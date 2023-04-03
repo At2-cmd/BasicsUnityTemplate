@@ -1,6 +1,11 @@
 {
   "dependencies": {
     "com.rotatelab.fsm": "https://github.com/RotatelabDev/FSM-Package.git",
+    "com.rotatelab.game_action": "https://github.com/RotatelabDev/GameAction-Package.git",
+    "com.rotatelab.game_manager": "https://github.com/RotatelabDev/GameManager-Package.git",
+    "com.rotatelab.level_manager": "https://github.com/RotatelabDev/LevelManager-Package.git",
+    "com.rotatelab.vibration": "https://github.com/RotatelabDev/Vibration-Package.git",
+    "com.unity.2d.sprite": "1.0.0",
     "com.unity.cinemachine": "2.8.9",
     "com.unity.collab-proxy": "1.17.7",
     "com.unity.feature.development": "1.0.1",

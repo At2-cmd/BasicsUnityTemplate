@@ -1,4 +1,5 @@
 using Rotatelab.FSM;
+using Rotatelab.Manager;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour

@@ -9,6 +9,46 @@
       },
       "hash": "201745282a68ae47cd604abe4f9893e9309617f7"
     },
+    "com.rotatelab.game_action": {
+      "version": "https://github.com/RotatelabDev/GameAction-Package.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.unity.services.core": "1.0.1"
+      },
+      "hash": "392d48b3d8d1bc8a4ee575f7c4b173f64d3e89b1"
+    },
+    "com.rotatelab.game_manager": {
+      "version": "https://github.com/RotatelabDev/GameManager-Package.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "e997b85848bbbd4f7863b07f4eaf461b24ba7bb0"
+    },
+    "com.rotatelab.level_manager": {
+      "version": "https://github.com/RotatelabDev/LevelManager-Package.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.unity.services.core": "1.0.1"
+      },
+      "hash": "60e52c438df4b0c02cd15dd9371531c44cce5155"
+    },
+    "com.rotatelab.vibration": {
+      "version": "https://github.com/RotatelabDev/Vibration-Package.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.unity.services.core": "1.0.1"
+      },
+      "hash": "843514cad92fcaa8b548eb089ad1a6be2e9d2394"
+    },
+    "com.unity.2d.sprite": {
+      "version": "1.0.0",
+      "depth": 0,
+      "source": "builtin",
+      "dependencies": {}
+    },
     "com.unity.burst": {
       "version": "1.8.2",
       "depth": 1,

@@ -1,4 +1,3 @@
-using _GameData._Scripts._Managers;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
@@ -13,11 +12,11 @@ public class PointUIEffect : MonoBehaviour
 
     private void OnEnable()
     {
-        GameEventManager.Instance.OnPointCollected += OnPointCollectedHandler;
+        
     }
     private void OnDisable()
     {
-        GameEventManager.Instance.OnPointCollected -= OnPointCollectedHandler;
+        
     }
 
     private void OnGameStartedHandler()

@@ -1,4 +1,3 @@
-using _GameData._Scripts._Managers;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Rendering;
@@ -39,19 +38,11 @@ public class PostProcessingManager : MonoBehaviour
 
     private void OnEnable()
     {
-        GameEventManager.Instance.OnSunnyZoneEntered += OnSunnyZoneEnteredHandler;
-        GameEventManager.Instance.OnBiteOccured += OnBiteOccuredHandler;
-        GameEventManager.Instance.OnDamageTaken += OnDamageTakenHandler;
-        GameEventManager.Instance.OnLevelEnded += OnLevelEndedHandler;
-        GameEventManager.Instance.OnSunnyZoneExited += OnSunnyZoneExitedHandlder;
+        
     }
     private void OnDisable()
     {
-        GameEventManager.Instance.OnSunnyZoneEntered -= OnSunnyZoneEnteredHandler;
-        GameEventManager.Instance.OnBiteOccured -= OnBiteOccuredHandler;
-        GameEventManager.Instance.OnDamageTaken -= OnDamageTakenHandler;
-        GameEventManager.Instance.OnLevelEnded -= OnLevelEndedHandler;
-        GameEventManager.Instance.OnSunnyZoneExited -= OnSunnyZoneExitedHandlder;
+        
     }
     private void OnSunnyZoneEnteredHandler()
     {
