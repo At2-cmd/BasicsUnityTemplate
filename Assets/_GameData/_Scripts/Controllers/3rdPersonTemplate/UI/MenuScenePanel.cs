@@ -7,12 +7,18 @@ using UnityEngine.UI;
 
 public class MenuScenePanel : MonoBehaviour
 {
-    private Image fadeOutImage;
+    [SerializeField] private Image fadeOutImage;
+    [SerializeField] private FadeType fadeType;
 
-    private void Awake()
+
+    private void Start()
     {
-        fadeOutImage = GetComponent<Image>();
+        if (fadeType == FadeType.FADEIN)
+        {
+            fadeOutImage.DOFade(0, 1);
+        }
     }
+
     public void FadeOutAndProceed()
     {
 
@@ -21,5 +27,11 @@ public class MenuScenePanel : MonoBehaviour
             int nextLevel = SceneManager.GetActiveScene().buildIndex + 1;
             SceneManager.LoadScene(nextLevel); 
         });
+    }
+
+    public enum FadeType
+    {
+        FADEOUT,
+        FADEIN
     }
 }
