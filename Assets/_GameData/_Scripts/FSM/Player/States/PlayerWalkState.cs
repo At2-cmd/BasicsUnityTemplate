@@ -27,7 +27,7 @@ public class PlayerWalkState : PlayerBaseState
     {
         owner.GetInput();
         owner.RotatePlayerToDirection(owner.WalkRotateSpeed);
-        isMoving = owner.CheckMovementState();
+        isMoving = InputManager.Instance.CheckMovementState();
 
         if (!isMoving)
         {

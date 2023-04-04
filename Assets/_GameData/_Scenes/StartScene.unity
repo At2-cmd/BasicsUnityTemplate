@@ -493,7 +493,6 @@ GameObject:
   - component: {fileID: 179034949}
   - component: {fileID: 179034951}
   - component: {fileID: 179034950}
-  - component: {fileID: 179034952}
   m_Layer: 5
   m_Name: FadeOutEffect
   m_TagString: Untagged
@@ -534,7 +533,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.1764706}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -559,19 +558,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 179034948}
   m_CullTransparentMesh: 1
---- !u!114 &179034952
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 179034948}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 740a8ebf910ff724ba03df97d2e3bcb7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fadeType: 0
 --- !u!1 &242539988
 GameObject:
   m_ObjectHideFlags: 0
@@ -793,6 +779,37 @@ Transform:
   m_Father: {fileID: 1555156168}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &333181964
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 333181965}
+  m_Layer: 0
+  m_Name: InputManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &333181965
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 333181964}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1445181484}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &372842585
 GameObject:
   m_ObjectHideFlags: 0
@@ -806,6 +823,7 @@ GameObject:
   - component: {fileID: 372842588}
   - component: {fileID: 372842587}
   - component: {fileID: 372842590}
+  - component: {fileID: 372842591}
   m_Layer: 5
   m_Name: MenuCanvas
   m_TagString: Untagged
@@ -906,6 +924,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 372842585}
   m_CullTransparentMesh: 1
+--- !u!114 &372842591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 372842585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 740a8ebf910ff724ba03df97d2e3bcb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeImage: {fileID: 179034950}
+  fadeType: 0
 --- !u!1 &814257221
 GameObject:
   m_ObjectHideFlags: 0
@@ -1275,7 +1307,8 @@ Transform:
   m_LocalPosition: {x: 1.8307366, y: 1.6553657, z: -0.9665363}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 333181965}
   m_Father: {fileID: 1394897960}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1397,8 +1430,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 179034952}
-        m_TargetAssemblyTypeName: MenuScenePanel, Assembly-CSharp
+      - m_Target: {fileID: 372842591}
+        m_TargetAssemblyTypeName: FadeInOutEffect, Assembly-CSharp
         m_MethodName: FadeOutAndProceed
         m_Mode: 1
         m_Arguments:

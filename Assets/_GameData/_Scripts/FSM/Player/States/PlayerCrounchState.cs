@@ -25,7 +25,7 @@ public class PlayerCrounchState : PlayerBaseState
 
     public override void Update()
     {
-        isMoving = owner.CheckMovementState();
+        isMoving = InputManager.Instance.CheckMovementState();
 
         if (isMoving)
         {

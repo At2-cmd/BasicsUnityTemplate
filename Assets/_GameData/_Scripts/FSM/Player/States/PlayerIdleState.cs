@@ -26,7 +26,10 @@ public class PlayerIdleState : PlayerBaseState
 
     public override void Update()
     {
-		isMoving = owner.CheckMovementState();
+		if (InputManager.Instance != null)
+		{
+            isMoving = InputManager.Instance.CheckMovementState();
+        }
 
         if (isMoving)
 		{

@@ -5,9 +5,9 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class MenuScenePanel : MonoBehaviour
+public class FadeInOutEffect : MonoBehaviour
 {
-    [SerializeField] private Image fadeOutImage;
+    [SerializeField] private Image fadeImage;
     [SerializeField] private FadeType fadeType;
 
 
@@ -15,14 +15,18 @@ public class MenuScenePanel : MonoBehaviour
     {
         if (fadeType == FadeType.FADEIN)
         {
-            fadeOutImage.DOFade(0, 1);
+            fadeImage.enabled = true;
+            fadeImage.DOFade(0, 1).OnComplete(() =>
+            {
+                fadeImage.enabled = false;
+            });
         }
     }
 
     public void FadeOutAndProceed()
     {
 
-        fadeOutImage.DOFade(1, 1).OnComplete(() =>
+        fadeImage.DOFade(1, 1).OnComplete(() =>
         {
             int nextLevel = SceneManager.GetActiveScene().buildIndex + 1;
             SceneManager.LoadScene(nextLevel); 

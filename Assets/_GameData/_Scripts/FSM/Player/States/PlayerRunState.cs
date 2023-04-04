@@ -28,7 +28,7 @@ public class PlayerRunState : PlayerBaseState
     {
         owner.GetInput();
         owner.RotatePlayerToDirection(owner.RunRotateSpeed);
-        isMoving = owner.CheckMovementState();
+        isMoving = InputManager.Instance.CheckMovementState();
 
         if (Input.GetKeyUp(KeyCode.LeftShift))
         {

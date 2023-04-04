@@ -18,6 +18,14 @@ public class InputManager : MonoBehaviour
         Instance = this;
     }
 
+    private void Start()
+    {
+        if (controlType == ControlType.MOUSE)
+        {
+            floatingJS.gameObject.SetActive(true);
+        }
+    }
+
     private void Update()
     {
         switch (controlType)
@@ -32,12 +40,17 @@ public class InputManager : MonoBehaviour
                 verticalInput = Input.GetAxis("Vertical");
                 break;
         }
+    }
 
-        //horizontalInput = floatingJS.Horizontal;
-        //verticalInput = floatingJS.Vertical;
+    public ControlType GetControlType() 
+    { 
+        return controlType; 
+    }
 
-        //horizontalInput = Input.GetAxis("Horizontal");
-        //verticalInput = Input.GetAxis("Vertical");
+    public bool CheckMovementState()
+    {
+        bool isMoving = (horizontalInput != 0f) || (verticalInput != 0f);
+        return isMoving;
     }
 
     public enum ControlType 
